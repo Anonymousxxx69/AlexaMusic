@@ -14,6 +14,8 @@ import asyncio
 import importlib
 from typing import Any
 
+from web import start_webserver, ping_server
+
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
 
@@ -58,10 +60,15 @@ async def init() -> None:
         pass
     await Alexa.decorators()
     LOGGER("AlexaMusic").info("Alexa Music Bot Started Successfully")
+    if config.WEB_SERVER:
+            asyncio.create_task(start_webserver())
+            asyncio.create_task(ping_server(config.PING_URL, config.PING_TIME))
+        
     await idle()
     await app.stop()
     await userbot.stop()
     LOGGER("AlexaMusic").info("Stopping Alexa Music Bot...")
+    
 
 
 if __name__ == "__main__":
