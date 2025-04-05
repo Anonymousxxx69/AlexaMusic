@@ -89,6 +89,11 @@ TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "1073741824"))
 COOKIES = getenv("COOKIES", None)
 # https://batbin.me
 
+# For Koyeb/render 
+WEB_SERVER = bool(os.getenv("WEB_SERVER", True)) # make it True if deploying on koyeb/render else False
+PING_URL = os.getenv("PING_URL") # add your koyeb/render's public url
+PING_TIME = int(os.getenv("PING_TIME")) # Add time_out in seconds
+
 STRING1 = getenv("STRING_SESSION", None)
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
