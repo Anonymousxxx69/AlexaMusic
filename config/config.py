@@ -11,6 +11,7 @@ as you want.
 
 import re
 import sys
+import os
 from os import getenv
 
 from dotenv import load_dotenv
